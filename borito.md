@@ -15,4 +15,4 @@ A számítógép véletlenszerűen sorsol egy kártyát az adott deck-ből. Elő
 
 ## Tárolás
 A deck-eket egy-egy CSV formátumú fájlban fogjuk tárolni, 1 sor 1 szóról tárol adatot, a következőképp:
-<ID>,<szó idegen nyelven>,<szó magyar nyelven>,<hányszor volt kérdezve a szó>,<hányszor találta el a felhasználó>, etc.
+`<ID>,<szó idegen nyelven>,<szó magyar nyelven>,<hányszor volt kérdezve a szó>,<hányszor találta el a felhasználó>, etc.`
