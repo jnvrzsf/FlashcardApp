@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Model\Cards\Card.cs" />
     <Compile Include="Model\Deck\Deck.cs" />
+    <Compile Include="Model\Deck\WholeDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
