@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Left" Margin="-667,199,0,0" Text="title" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Button Content="Study"></Button>
+        </StackPanel>
     </Grid>
 </Page>
