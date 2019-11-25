@@ -126,6 +126,7 @@
     <Compile Include="Model\Deck\Deck.cs" />
     <Compile Include="Model\Deck\DeckInProgress.cs" />
     <Compile Include="Model\Deck\WholeDeck.cs" />
+    <Compile Include="Model\Logic\LearningLogic.cs" />
     <Compile Include="Model\Logic\ManageDeckInProgress.cs" />
     <Compile Include="Model\Logic\ManageWholeDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

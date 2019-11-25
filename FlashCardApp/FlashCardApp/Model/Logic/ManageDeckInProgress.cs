@@ -14,6 +14,18 @@ namespace FlashCardApp.Model.Logic
         {
         }
 
+        public void CheckDeckInProgress()
+        {
+            foreach (Card card in DeckInProgress.Instance().ListAll())
+            {
+                if (card.HitRateIsGoodEnough)
+                {
+                    DeckInProgress.Instance().Remove(card);
+                    PickCardsToLearn();
+                }
+            }
+        }
+
         public void PickCardsToLearn()
         {
             foreach (Card card in WholeDeck.Instance().ListAll())
