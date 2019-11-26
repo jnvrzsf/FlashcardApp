@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlashCardApp.Model.Deck
 {
+    /* Aktuális pakli */
     public class DeckInProgress : Deck
     {
         private static DeckInProgress instance = new DeckInProgress();
