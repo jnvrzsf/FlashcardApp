@@ -2,6 +2,7 @@
 using System;
 using FlashCardApp.Model.Cards;
 using FlashCardApp.Model.Deck;
+using FlashCardApp.Model.Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ModelTests
@@ -9,6 +10,8 @@ namespace ModelTests
     [TestClass]
     public class ModelTests
     {
+        public object ManageDeckInProgess { get; private set; }
+
         [TestInitialize]
         public void WholeDeckInitialize()
         {
@@ -46,6 +49,25 @@ namespace ModelTests
         [TestMethod]
         public void CreateDeckInProgress()
         {
+            ManageDeckInProgress deckManager = new ManageDeckInProgress();
+            deckManager.PickCardsToLearn();
+
+            Assert.AreEqual(10, DeckInProgress.Instance().ListAll().Count);
+        }
+
+        [TestMethod]
+        public void TestManageDeckInProgress()
+        {
+            ManageDeckInProgress deckManager = new ManageDeckInProgress();
+            deckManager.PickCardsToLearn();
+            var testedCard = DeckInProgress.Instance().ListAll()[0];
+
+            for (int i = 0; i < 6; i++)
+            {
+                testedCard.DealWithAnswer(true);
+            }
+            deckManager.CheckDeckInProgress();
+            Assert.IsFalse(DeckInProgress.Instance().ListAll().Contains(testedCard));
 
         }
     }
