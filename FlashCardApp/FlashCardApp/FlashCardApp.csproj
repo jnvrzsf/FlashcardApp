@@ -122,6 +122,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cards\Card.cs" />
+    <Compile Include="Model\Deck\Deck.cs" />
+    <Compile Include="Model\Deck\DeckInProgress.cs" />
+    <Compile Include="Model\Deck\WholeDeck.cs" />
+    <Compile Include="Model\Logic\LearningLogic.cs" />
+    <Compile Include="Model\Logic\ManageDeckInProgress.cs" />
+    <Compile Include="Model\Logic\ManageWholeDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,7 +162,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
