@@ -9,9 +9,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBlock HorizontalAlignment="Left" Margin="-667,199,0,0" Text="title" TextWrapping="Wrap" VerticalAlignment="Top"/>
-            <Button Content="Study"></Button>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <TextBlock x:Name="pageTitle" Text="Flashcards" HorizontalAlignment="Center" FontSize="36"/>
+            <Button x:Name="studyBtn" Content="Study" HorizontalAlignment="Center" Width="150" Click="studyBtn_Click"></Button>
+            <Button x:Name="browseBtn" Content="Browse" HorizontalAlignment="Center" Width="150"></Button>
+            <Button x:Name="manageBtn" Content="Manage decks" HorizontalAlignment="Center" Width="150"></Button>
+            <Button x:Name="exitBtn" Content="Exit" HorizontalAlignment="Center" Width="150" Click="exitBtn_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>
