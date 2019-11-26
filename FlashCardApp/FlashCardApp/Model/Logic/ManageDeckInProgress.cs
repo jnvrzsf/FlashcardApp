@@ -18,7 +18,7 @@ namespace FlashCardApp.Model.Logic
         {
             foreach (Card card in DeckInProgress.Instance().ListAll())
             {
-                if (card.HitRateIsGoodEnough)
+                if (card.AmountOfHitsIsGoodEnough)
                 {
                     DeckInProgress.Instance().Remove(card);
                     PickCardsToLearn();
@@ -39,7 +39,7 @@ namespace FlashCardApp.Model.Logic
 
         public bool IsHitRateLow(Card card)
         {
-            return !card.HitRateIsGoodEnough;
+            return !card.AmountOfHitsIsGoodEnough;
         }
     }
 }

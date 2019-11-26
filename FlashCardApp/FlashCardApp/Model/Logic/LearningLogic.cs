@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FlashCardApp.Model.Logic
 {
-    class LearningLogic
+    public class LearningLogic
     {
+        public LearningLogic()
+        {
+        }
     }
 }

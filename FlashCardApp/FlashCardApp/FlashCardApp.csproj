@@ -126,6 +126,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Cards\Card.cs" />
+    <Compile Include="Model\Cards\CardBuilder.cs" />
     <Compile Include="Model\Deck\Deck.cs" />
     <Compile Include="Model\Deck\DeckInProgress.cs" />
     <Compile Include="Model\Deck\WholeDeck.cs" />

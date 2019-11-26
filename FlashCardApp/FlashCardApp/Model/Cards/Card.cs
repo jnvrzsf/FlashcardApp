@@ -11,8 +11,8 @@ namespace FlashCardApp.Model.Cards
         public int ID { get; private set; }
         public string WordToLearn { get; private set; }
         public string Meaning { get; private set; }
-        public int Hit { get; private set; }
-        public bool HitRateIsGoodEnough { get; private set; }
+        public int Hits { get; private set; }
+        public bool AmountOfHitsIsGoodEnough { get; private set; }
 
         public Card(int id, string wordToLearn, string meaning)
         {
@@ -25,20 +25,20 @@ namespace FlashCardApp.Model.Cards
         {
             if (validity)
             {
-                Hit++;
-                CalculateHitRate();
+                Hits++;
+                CalculateAmountOfHits();
             }
             else
             {
-                Hit = 0;
+                Hits = 0;
             }
         }
 
-        public void CalculateHitRate()
+        public void CalculateAmountOfHits()
         {
-            if (Hit >= 5)
+            if (Hits >= 5)
             {
-                HitRateIsGoodEnough = true;
+                AmountOfHitsIsGoodEnough = true;
             }
         }
     }
