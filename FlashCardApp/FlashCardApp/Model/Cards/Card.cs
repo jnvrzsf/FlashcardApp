@@ -11,7 +11,9 @@ namespace FlashCardApp.Model.Cards
         public int ID { get; private set; }
         public string WordToLearn { get; private set; }
         public string Meaning { get; private set; }
+        /* Találatok száma */
         public int Hits { get; private set; }
+        /* Megtanulta-e már a szót */
         public bool AmountOfHitsIsGoodEnough { get; private set; }
 
         public Card(int id, string wordToLearn, string meaning)
@@ -21,6 +23,7 @@ namespace FlashCardApp.Model.Cards
             Meaning = meaning;
         }
 
+        /*  A felhasználó által adott válasz validációja */
         public void DealWithAnswer(bool validity)
         {
             if (validity)
@@ -34,7 +37,8 @@ namespace FlashCardApp.Model.Cards
             }
         }
 
-        public void CalculateAmountOfHits()
+        /* Eldönti, hogy megtanulta-e már a szót */
+        private void CalculateAmountOfHits()
         {
             if (Hits >= 5)
             {
