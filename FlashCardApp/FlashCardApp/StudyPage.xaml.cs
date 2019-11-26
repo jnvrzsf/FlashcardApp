@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,14 @@ namespace FlashCardApp
         public StudyPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //rectangle.Fill = new SolidColorBrush(Colors.Green);
+            hungarianText.Visibility = Visibility.Visible;
+            wrongBtn.Visibility = Visibility.Visible;
+            rightBtn.Visibility = Visibility.Visible;
         }
     }
 }
