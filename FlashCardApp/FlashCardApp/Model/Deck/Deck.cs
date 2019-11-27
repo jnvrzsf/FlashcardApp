@@ -12,6 +12,7 @@ namespace FlashCardApp.Model.Deck
     {
         protected Dictionary<int, Card> cardsInDictionary = new Dictionary<int, Card>();
 
+        #region Adding and Removing
         /* Paklihoz hozzáad */
         public void Add(Card card)
         {
@@ -24,17 +25,16 @@ namespace FlashCardApp.Model.Deck
         {
             cardsInDictionary.Remove(card.ID);
         }
+        public void Clear()
+        {
+            cardsInDictionary.Clear();
+        }
+        #endregion
 
         /* Kilistázás */
         public List<Card> ListAll()
         {
             return cardsInDictionary.Values.ToList();
         }
-
-        public void Clear()
-        {
-            cardsInDictionary.Clear();
-        }
-
     }
 }
