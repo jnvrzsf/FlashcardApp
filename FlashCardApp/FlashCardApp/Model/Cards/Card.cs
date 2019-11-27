@@ -13,8 +13,10 @@ namespace FlashCardApp.Model.Cards
         public string Meaning { get; private set; }
         /* Találatok száma */
         public int Hits { get; private set; }
-        /* Megtanulta-e már a szót */
+        /* Ha eltalálta egymásután háromszor, akkor már tudja eléggé ahhoz, hogy tovább mehessen (de még nem tanulta meg) */
         public bool AmountOfHitsIsGoodEnough { get; private set; }
+        /* Ha eltalálta ötször egymásután, akkor már megtanulta a szót. */
+        public bool IsLearned { get; private set; }
 
         public Card(int id, string wordToLearn, string meaning)
         {
@@ -41,6 +43,10 @@ namespace FlashCardApp.Model.Cards
         private void CalculateAmountOfHits()
         {
             if (Hits >= 5)
+            {
+                IsLearned = true;
+            }
+            else if (Hits >= 3 && Hits < 5)
             {
                 AmountOfHitsIsGoodEnough = true;
             }
