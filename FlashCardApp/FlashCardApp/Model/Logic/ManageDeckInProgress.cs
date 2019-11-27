@@ -11,6 +11,11 @@ namespace FlashCardApp.Model.Logic
     /* Az aktuálisan tanulandó kártyák kezelése */
     public class ManageDeckInProgress
     {
+        private double green = 0.9; //biztosan tudja
+        private double yellow = 0.6; //még nem biztos a tudás
+        private double red = 0.0; //abszolút nem tudja
+        Random random = new Random();
+
         public ManageDeckInProgress()
         {
         }
@@ -35,17 +40,32 @@ namespace FlashCardApp.Model.Logic
         {
             foreach (Card card in WholeDeck.Instance().ListAll())
             {
-                if (IsHitRateLow(card) && DeckInProgress.Instance().ListAll().Count < 10)
+                if (ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < 10)
                 {
                     DeckInProgress.Instance().Add(card);
                 }
             }
         }
 
-        /* Ellenőrzi, hogy az adott kártyát tudja-e már az illető */
-        private bool IsHitRateLow(Card card)
+        /* Egy adott prioritás és egy véletlenszerűen generált szám alapján eldöntjük, hogy
+         * az adott kártyát behelyezzük-e a DeckInProgress-be. */
+         public bool ShouldWeAddCardToDeckInProgress(Card card)
         {
-            return !card.AmountOfHitsIsGoodEnough;
+            double randomNumber = random.NextDouble();
+
+            if (card.ColourOfTheCard == "red" && randomNumber < yellow)
+            {
+                return true;
+            }
+            else if (card.ColourOfTheCard == "yellow" && (randomNumber >= yellow && randomNumber < green))
+            {
+                return true;
+            }
+            else if (card.ColourOfTheCard == "green" && randomNumber >= green)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

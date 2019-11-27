@@ -17,12 +17,15 @@ namespace FlashCardApp.Model.Cards
         public bool AmountOfHitsIsGoodEnough { get; private set; }
         /* Ha eltalálta ötször egymásután, akkor már megtanulta a szót. */
         public bool IsLearned { get; private set; }
+        /* A kártya "színe" */
+        public string ColourOfTheCard { get; private set; }
 
         public Card(int id, string wordToLearn, string meaning)
         {
             ID = id;
             WordToLearn = wordToLearn;
             Meaning = meaning;
+            ColourOfTheCard = "red";
         }
 
         /*  A felhasználó által adott válasz validációja */
@@ -36,6 +39,7 @@ namespace FlashCardApp.Model.Cards
             else
             {
                 Hits = 0;
+                ColourOfTheCard = "red";
             }
         }
 
@@ -45,10 +49,12 @@ namespace FlashCardApp.Model.Cards
             if (Hits >= 5)
             {
                 IsLearned = true;
+                ColourOfTheCard = "green";
             }
             else if (Hits >= 3 && Hits < 5)
             {
                 AmountOfHitsIsGoodEnough = true;
+                ColourOfTheCard = "yellow";
             }
         }
     }
