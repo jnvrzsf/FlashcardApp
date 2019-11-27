@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
 
 namespace FlashCardApp.Model.Logic
 {
@@ -13,12 +15,16 @@ namespace FlashCardApp.Model.Logic
         {
         }
         
-        public void Create(string path)
+        public void Create(string FileName)
         {
-            //Open the input file and import the lines from it
-            //Split the lines and create Cards
-            //Add these Cards into the WholeDeck
-            //WholeDeck.Instance().Add(new Cards.Card(1, "example", "példa"));
+            var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/"+FileName+".csv";
+            StreamReader f = new StreamReader(Path);
+            while (!f.EndOfStream)
+            {
+                var line = f.ReadLine();
+                var values = line.Split(',');
+                WholeDeck.Instance().Add(new Cards.Card(Convert.ToInt32(values[0]), values[1], values[2], Convert.ToInt32(values[3])));
+            }
         }
     }
 }

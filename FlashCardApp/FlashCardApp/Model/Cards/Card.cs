@@ -24,6 +24,13 @@ namespace FlashCardApp.Model.Cards
         public string ColourOfTheCard { get; private set; }
         #endregion
 
+        public Card(int id, string wordToLearn, string meaning, int hit)
+        {
+            ID = id;
+            WordToLearn = wordToLearn;
+            Meaning = meaning;
+            Hits = hit;
+        }
         public Card(int id, string wordToLearn, string meaning)
         {
             ID = id;

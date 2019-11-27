@@ -15,6 +15,5 @@ namespace FlashCardApp.Model.Cards
         {
             deckManager.Create(deckName);
         }
-
     }
 }
