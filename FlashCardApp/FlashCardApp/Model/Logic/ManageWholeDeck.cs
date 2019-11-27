@@ -15,9 +15,9 @@ namespace FlashCardApp.Model.Logic
         {
         }
         
-        public void Create(string name)
+        public void Create(string FileName)
         {
-            var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/Animals.csv";
+            var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/"+FileName+".csv";
             StreamReader f = new StreamReader(Path);
             while (!f.EndOfStream)
             {
