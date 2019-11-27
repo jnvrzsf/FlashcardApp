@@ -25,11 +25,24 @@ namespace FlashCardApp
         public DeckSelectionPage()
         {
             this.InitializeComponent();
+            // abc sorrend
+            for (int i = 0; i < 30; i++) // foreach lesz
+            {
+                Button btn = new Button
+                {
+                    Content = "Deck" + i,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    VerticalAlignment = VerticalAlignment.Top
+                };
+                btn.Click += Button_Click;
+                stackPanel.Children.Add(btn);
+            } 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StudyPage));
+            // databinding majd ide, átadja a button contentjét
+            this.Frame.Navigate(typeof(StudyPage)); 
         }
     }
 }
