@@ -97,5 +97,15 @@ namespace ModelTests
             }
             Assert.IsTrue(count < 50);
         }
+
+        [TestMethod]
+        public void TestShuffle()
+        {
+            ManageDeckInProgress deckManager = new ManageDeckInProgress();
+            deckManager.PickCardsToLearn();
+            var card = DeckInProgress.Instance().ListAll()[1].Meaning;
+            DeckInProgress.Instance().Shuffle();
+            Assert.AreNotEqual(card, DeckInProgress.Instance().ListAll()[1].Meaning);
+        }
     }
 }
