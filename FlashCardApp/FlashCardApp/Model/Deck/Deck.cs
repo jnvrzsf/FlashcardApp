@@ -31,5 +31,10 @@ namespace FlashCardApp.Model.Deck
             return cardsInDictionary.Values.ToList();
         }
 
+        public void Clear()
+        {
+            cardsInDictionary.Clear();
+        }
+
     }
 }
