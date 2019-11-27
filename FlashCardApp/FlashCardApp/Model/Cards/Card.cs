@@ -16,6 +16,13 @@ namespace FlashCardApp.Model.Cards
         /* Megtanulta-e már a szót */
         public bool AmountOfHitsIsGoodEnough { get; private set; }
 
+        public Card(int id, string wordToLearn, string meaning, int hit)
+        {
+            ID = id;
+            WordToLearn = wordToLearn;
+            Meaning = meaning;
+            Hits = hit;
+        }
         public Card(int id, string wordToLearn, string meaning)
         {
             ID = id;
