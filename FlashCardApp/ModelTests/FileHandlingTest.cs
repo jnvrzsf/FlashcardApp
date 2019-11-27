@@ -12,13 +12,31 @@ namespace ModelTests
     [TestClass]
     public class FileHandlingTest
     {
+        ManageWholeDeck mwd = new ManageWholeDeck();
         [TestMethod]
-        public void ReadDeckFromFile()
+        public void ReadAnimalsDeckFromFile()
         {
-            ManageWholeDeck mwd = new ManageWholeDeck();
+            
             mwd.Create("Animals");
-            Assert.AreEqual(4, WholeDeck.Instance().ListAll().Count);
-            Assert.AreEqual("cat", WholeDeck.Instance().ListAll()[1].WordToLearn);
+            Assert.AreEqual(30, WholeDeck.Instance().ListAll().Count);
+            Assert.AreEqual("cock", WholeDeck.Instance().ListAll()[2].WordToLearn);
+            Assert.AreEqual("kakas", WholeDeck.Instance().ListAll()[2].Meaning);
+        }
+        [TestMethod]
+        public void ReadFoodsDeckFromFile()
+        {
+            mwd.Create("BreakfastFood");
+            Assert.AreEqual(20, WholeDeck.Instance().ListAll().Count);
+            Assert.AreEqual("coffee", WholeDeck.Instance().ListAll()[3].WordToLearn);
+            Assert.AreEqual("kávé", WholeDeck.Instance().ListAll()[3].Meaning);
+        }
+        [TestMethod]
+        public void ReadAdjectivesFromFile()
+        {
+            mwd.Create("Adjectives");
+            Assert.AreEqual(30, WholeDeck.Instance().ListAll().Count);
+            Assert.AreEqual("handsome", WholeDeck.Instance().ListAll()[10].WordToLearn);
+            Assert.AreEqual("jóképű", WholeDeck.Instance().ListAll()[10].Meaning);
         }
     }
 }
