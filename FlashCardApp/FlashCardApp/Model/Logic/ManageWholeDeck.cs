@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Reflection;
 
 namespace FlashCardApp.Model.Logic
 {
@@ -14,9 +15,10 @@ namespace FlashCardApp.Model.Logic
         {
         }
         
-        public void Create(string path)
+        public void Create(string name)
         {
-            StreamReader f = new StreamReader(path);
+            var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/Animals.csv";
+            StreamReader f = new StreamReader(Path);
             while (!f.EndOfStream)
             {
                 var line = f.ReadLine();

@@ -68,7 +68,6 @@ namespace ModelTests
             }
             deckManager.CheckDeckInProgress();
             Assert.IsFalse(DeckInProgress.Instance().ListAll().Contains(testedCard));
-
         }
     }
 }
