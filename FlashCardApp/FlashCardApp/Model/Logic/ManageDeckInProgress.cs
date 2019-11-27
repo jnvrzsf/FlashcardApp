@@ -11,11 +11,15 @@ namespace FlashCardApp.Model.Logic
     /* Az aktuálisan tanulandó kártyák kezelése */
     public class ManageDeckInProgress
     {
-        private double green = 0.9; //biztosan tudja
-        private double yellow = 0.6; //még nem biztos a tudás
-        private double red = 0.0; //abszolút nem tudja
-        Random random = new Random();
+        LearningLogic logic = new LearningLogic();
+        private int numberOfCardsWeWantToLearn = 5;
 
+        /* Megadhatjuk, hogy hány kártyát akarunk a DeckInProgressbe rakni (tetszőleges szám) */
+        public ManageDeckInProgress(int numberOfCardsWeWantToLearn)
+        {
+            this.numberOfCardsWeWantToLearn = numberOfCardsWeWantToLearn;
+        }
+        /* Default beállításokkal készítjük el a DeckInProgresst (5 kártya kerül bele)*/
         public ManageDeckInProgress()
         {
         }
@@ -40,32 +44,11 @@ namespace FlashCardApp.Model.Logic
         {
             foreach (Card card in WholeDeck.Instance().ListAll())
             {
-                if (ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < 10)
+                if (logic.ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < numberOfCardsWeWantToLearn)
                 {
                     DeckInProgress.Instance().Add(card);
                 }
             }
-        }
-
-        /* Egy adott prioritás és egy véletlenszerűen generált szám alapján eldöntjük, hogy
-         * az adott kártyát behelyezzük-e a DeckInProgress-be. */
-         public bool ShouldWeAddCardToDeckInProgress(Card card)
-        {
-            double randomNumber = random.NextDouble();
-
-            if (card.ColourOfTheCard == "red" && randomNumber < yellow)
-            {
-                return true;
-            }
-            else if (card.ColourOfTheCard == "yellow" && (randomNumber >= yellow && randomNumber < green))
-            {
-                return true;
-            }
-            else if (card.ColourOfTheCard == "green" && randomNumber >= green)
-            {
-                return true;
-            }
-            return false;
         }
     }
 }
