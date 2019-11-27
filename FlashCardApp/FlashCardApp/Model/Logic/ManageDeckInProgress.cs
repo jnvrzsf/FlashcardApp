@@ -14,6 +14,7 @@ namespace FlashCardApp.Model.Logic
         LearningLogic logic = new LearningLogic();
         private int numberOfCardsWeWantToLearn = 5;
 
+        #region constructors
         /* Megadhatjuk, hogy hány kártyát akarunk a DeckInProgressbe rakni (tetszőleges szám) */
         public ManageDeckInProgress(int numberOfCardsWeWantToLearn)
         {
@@ -23,7 +24,9 @@ namespace FlashCardApp.Model.Logic
         public ManageDeckInProgress()
         {
         }
+        #endregion
 
+        #region Handling DeckInProgress
         /* Ellenőrzi az aktuálisan a tanulni valók között lévő kártyákat,
          * és amennyiben azt az illető már tudja (legalább ötször egymás után eltalálja),
          akkor azt a kártyát kitörli onnan, és a helyébe egy újat tesz be. */
@@ -50,5 +53,6 @@ namespace FlashCardApp.Model.Logic
                 }
             }
         }
+        #endregion
     }
 }
