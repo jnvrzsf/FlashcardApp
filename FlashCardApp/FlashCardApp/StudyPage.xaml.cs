@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -20,16 +21,19 @@ namespace FlashCardApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DeckSelectionPage : Page
+    public sealed partial class StudyPage : Page
     {
-        public DeckSelectionPage()
+        public StudyPage()
         {
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StudyPage));
+            //rectangle.Fill = new SolidColorBrush(Colors.Green);
+            hungarianText.Visibility = Visibility.Visible;
+            wrongBtn.Visibility = Visibility.Visible;
+            rightBtn.Visibility = Visibility.Visible;
         }
     }
 }
