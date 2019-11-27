@@ -68,7 +68,34 @@ namespace ModelTests
             }
             deckManager.CheckDeckInProgress();
             Assert.IsFalse(DeckInProgress.Instance().ListAll().Contains(testedCard));
+        }
 
+        [TestMethod]
+        public void TestPriorityInDeckInprorgess()
+        {
+            ManageDeckInProgress deckManager = new ManageDeckInProgress();
+            deckManager.PickCardsToLearn();
+            var testedCard = DeckInProgress.Instance().ListAll()[0];
+
+            for (int i = 0; i < 3; i++)
+            {
+                testedCard.DealWithAnswer(true);
+            }
+            deckManager.CheckDeckInProgress();
+            Assert.IsFalse(DeckInProgress.Instance().ListAll().Contains(testedCard));
+
+            int count = 0;
+            while (true)
+            {
+                DeckInProgress.Instance().ListAll()[0].DealWithAnswer(true);
+                deckManager.CheckDeckInProgress();
+                count++;
+                if (DeckInProgress.Instance().ListAll().Contains(testedCard))
+                {
+                    break;
+                }
+            }
+            Assert.IsTrue(count < 50);
         }
     }
 }
