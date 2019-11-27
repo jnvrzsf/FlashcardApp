@@ -14,5 +14,11 @@ namespace FlashCardApp.Model.Deck
         private DeckInProgress()
         {
         }
+
+        public void Shuffle()
+        {
+            Random random = new Random();
+            cardsInDictionary = cardsInDictionary.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
+        }
     }
 }
