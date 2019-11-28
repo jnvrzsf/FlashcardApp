@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
+using Windows.Storage.Pickers;
+using Windows.Storage;
 
 namespace FlashCardApp.Model.Logic
 {
