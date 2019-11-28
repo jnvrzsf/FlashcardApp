@@ -49,5 +49,32 @@ namespace FlashCardApp
             Button button = sender as Button;
             this.Frame.Navigate(typeof(StudyPage), button.Content);
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            BackButton.IsEnabled = this.Frame.CanGoBack;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            On_BackRequested();
+        }
+
+        // Handles system-level BackRequested events and page-level back button Click events
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
+        }
+
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
+        }
     }
 }
