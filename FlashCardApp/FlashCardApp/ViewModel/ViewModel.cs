@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace FlashCardApp.ViewModel
 {
-    class ViewModel
+    static class ViewModel
     {
-        public List<string> GetExistingDecks()
+        static public List<string> GetExistingDecks()
         {
             List<string> existingDecks = new List<string>();
-            DirectoryInfo d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Files\\");//Assuming Test is your Folder
-            FileInfo[] Files = d.GetFiles("*.csv"); //Getting Text files
+            DirectoryInfo d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Files\\");
+            FileInfo[] Files = d.GetFiles("*.csv");
             foreach (FileInfo file in Files)
             {
                 existingDecks.Add(file.Name);

@@ -26,6 +26,7 @@ namespace FlashCardApp
         public DeckSelectionPage()
         {
             this.InitializeComponent();
+            DeckTitles = ViewModel.ViewModel.GetExistingDecks();
             // feltölt lista
             // abc sorrendbe rendezés majd!
             foreach (string title in DeckTitles)
@@ -45,8 +46,8 @@ namespace FlashCardApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // databinding majd ide, átadja a button contentjét
-            this.Frame.Navigate(typeof(StudyPage)); 
+            Button button = sender as Button;
+            this.Frame.Navigate(typeof(StudyPage), button.Content);
         }
     }
 }

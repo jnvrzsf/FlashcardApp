@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using FlashCardApp.Model.Deck;
 using FlashCardApp.Model.Cards;
+using FlashCardApp.Model.Logic;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,15 +28,30 @@ namespace FlashCardApp
     {
         public StudyPage()
         {
-            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             this.InitializeComponent();
         }
+
+        //
+        private ManageDeckInProgress deckInProgressManager = new ManageDeckInProgress();
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
             hungarianText.Visibility = Visibility.Visible;
             wrongBtn.Visibility = Visibility.Visible;
             rightBtn.Visibility = Visibility.Visible;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
+            WholeDeckManager.Create(e.ToString());
+
+            deckInProgressManager.PickCardsToLearn();
+            //e.Parameter
+
+
+            // greeting.Text = e.Parameter
+            // base.OnNavigatedTo(e);
         }
     }
 }
