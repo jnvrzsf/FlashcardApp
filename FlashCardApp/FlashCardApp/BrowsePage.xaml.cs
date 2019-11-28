@@ -34,6 +34,8 @@ namespace FlashCardApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            BackButton.IsEnabled = this.Frame.CanGoBack;
+
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
             WholeDeckManager.Create(e.Parameter.ToString());
 
@@ -59,7 +61,22 @@ namespace FlashCardApp
                 Grid.SetRow(foreignWord, CardList.IndexOf(card));
                 Grid.SetRow(hungarianWord, CardList.IndexOf(card));
             }
+        }
 
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            On_BackRequested();
+        }
+
+        // Handles system-level BackRequested events and page-level back button Click events
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
         }
     }
 }
