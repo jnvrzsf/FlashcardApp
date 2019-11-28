@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-            <Button Name="BackButton" Grid.Column="0" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Name="BackButton" Grid.Column="0" Style="{StaticResource NavigationBackButtonNormalStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Back_Click"/>
             <TextBlock Grid.Column="1" Name="Title" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
         </Grid>
 
@@ -44,11 +44,11 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock Name="foreignText" Text="Foreign word" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                <TextBox/>
+                <TextBox Margin="35"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
                 <TextBlock Name="hungarianText" Text="Hungarian word" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                <TextBox/>
+                <TextBox Margin="35"/>
             </StackPanel>
         </Grid>
 
