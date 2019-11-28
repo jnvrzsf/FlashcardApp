@@ -52,7 +52,7 @@ namespace ModelTests
             ManageDeckInProgress deckManager = new ManageDeckInProgress();
             deckManager.PickCardsToLearn();
 
-            Assert.AreEqual(10, DeckInProgress.Instance().ListAll().Count);
+            Assert.AreEqual(deckManager.NumberOfCardsWeWantToLearn, DeckInProgress.Instance().ListAll().Count);
         }
 
         [TestMethod]
