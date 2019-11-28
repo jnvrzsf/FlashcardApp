@@ -45,9 +45,8 @@ namespace FlashCardApp.Model.Cards
         /*  A felhasználó által adott válasz kezelése */
         public void DealWithAnswer(bool isCorrect)
         {
-            if (isCorrect && Hits < 5)
+            if (isCorrect)
             {
-                Hits++;
                 CalculateAmountOfHits();
             }
             else
@@ -60,7 +59,7 @@ namespace FlashCardApp.Model.Cards
         /* Eldönti, hogy megtanulta-e már a szót */
         private void CalculateAmountOfHits()
         {
-            if (Hits >= 5)
+            if (Hits == 5)
             {
                 IsLearned = true;
                 ColourOfTheCard = "green";
@@ -69,10 +68,12 @@ namespace FlashCardApp.Model.Cards
             {
                 AmountOfHitsIsGoodEnough = true;
                 ColourOfTheCard = "yellow";
+                Hits++;
             }
             else
             {
                 ColourOfTheCard = "red";
+                Hits++;
             }
         }
         #endregion

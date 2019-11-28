@@ -51,7 +51,7 @@ namespace FlashCardApp
             title.Text = e.Parameter.ToString();
 
             foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
-            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning;
+            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning + "5/" + DeckInProgress.Instance().ListAll()[CurrentCardIndex].Hits;
         }
 
         private void wrongBtn_Click(object sender, RoutedEventArgs e)
@@ -72,7 +72,7 @@ namespace FlashCardApp
             wrongBtn.Visibility = Visibility.Collapsed;
             rightBtn.Visibility = Visibility.Collapsed;
 
-            if (CurrentCardIndex == 4)
+            if (CurrentCardIndex == DeckInProgress.Instance().ListAll().Count - 1)
             {
                 CurrentCardIndex = 0;
                 DeckInProgress.Instance().Shuffle();
@@ -84,7 +84,7 @@ namespace FlashCardApp
             }
 
             foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
-            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning;
+            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning + "5/" + DeckInProgress.Instance().ListAll()[CurrentCardIndex].Hits;
         }
     }
 }
