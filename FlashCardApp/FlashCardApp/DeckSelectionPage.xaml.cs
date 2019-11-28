@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashCardApp.Model.Deck;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,19 +26,22 @@ namespace FlashCardApp
         public DeckSelectionPage()
         {
             this.InitializeComponent();
-            // abc sorrend
-            for (int i = 0; i < 30; i++) // foreach lesz
+            // feltölt lista
+            // abc sorrendbe rendezés majd!
+            foreach (string title in DeckTitles)
             {
                 Button btn = new Button
                 {
-                    Content = "Deck" + i,
+                    Content = title,
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Top
                 };
                 btn.Click += Button_Click;
                 stackPanel.Children.Add(btn);
-            } 
+            }
         }
+
+        public List<string> DeckTitles;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
