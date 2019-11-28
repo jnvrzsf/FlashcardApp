@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FlashCardApp.Model.Deck;
+using FlashCardApp.Model.Cards;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,12 +27,12 @@ namespace FlashCardApp
     {
         public StudyPage()
         {
+            Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             this.InitializeComponent();
         }
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //rectangle.Fill = new SolidColorBrush(Colors.Green);
             hungarianText.Visibility = Visibility.Visible;
             wrongBtn.Visibility = Visibility.Visible;
             rightBtn.Visibility = Visibility.Visible;
