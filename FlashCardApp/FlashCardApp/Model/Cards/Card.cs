@@ -30,6 +30,7 @@ namespace FlashCardApp.Model.Cards
             WordToLearn = wordToLearn;
             Meaning = meaning;
             Hits = hit;
+            CalculateAmountOfHits();
         }
         public Card(int id, string wordToLearn, string meaning)
         {
@@ -37,6 +38,7 @@ namespace FlashCardApp.Model.Cards
             WordToLearn = wordToLearn;
             Meaning = meaning;
             ColourOfTheCard = "red";
+            Hits = 0;
         }
 
         #region interactions
@@ -67,6 +69,10 @@ namespace FlashCardApp.Model.Cards
             {
                 AmountOfHitsIsGoodEnough = true;
                 ColourOfTheCard = "yellow";
+            }
+            else
+            {
+                ColourOfTheCard = "red";
             }
         }
         #endregion

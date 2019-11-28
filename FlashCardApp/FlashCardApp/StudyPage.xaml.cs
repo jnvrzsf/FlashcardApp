@@ -31,7 +31,7 @@ namespace FlashCardApp
             this.InitializeComponent();
         }
 
-        //
+        private int CurrentCardIndex = 0;
         private ManageDeckInProgress deckInProgressManager = new ManageDeckInProgress();
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
@@ -44,14 +44,47 @@ namespace FlashCardApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
-            WholeDeckManager.Create(e.ToString());
+            WholeDeckManager.Create(e.Parameter.ToString());
 
+           
             deckInProgressManager.PickCardsToLearn();
-            //e.Parameter
+            title.Text = e.Parameter.ToString();
 
+            foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
+            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning;
+        }
 
-            // greeting.Text = e.Parameter
-            // base.OnNavigatedTo(e);
+        private void wrongBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonHandling(false);
+        }
+
+        private void rightBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonHandling(true);
+        }
+
+        private void ButtonHandling(bool isRight)
+        {
+            DeckInProgress.Instance().ListAll()[CurrentCardIndex].DealWithAnswer(isRight);
+
+            hungarianText.Visibility = Visibility.Collapsed;
+            wrongBtn.Visibility = Visibility.Collapsed;
+            rightBtn.Visibility = Visibility.Collapsed;
+
+            if (CurrentCardIndex == 4)
+            {
+                CurrentCardIndex = 0;
+                DeckInProgress.Instance().Shuffle();
+                deckInProgressManager.CheckDeckInProgress();
+            }
+            else
+            {
+                CurrentCardIndex++;
+            }
+
+            foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
+            hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning;
         }
     }
 }
