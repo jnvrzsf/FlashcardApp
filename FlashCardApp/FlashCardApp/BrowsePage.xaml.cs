@@ -1,4 +1,6 @@
-﻿using FlashCardApp.Model.Deck;
+﻿using FlashCardApp.Model.Cards;
+using FlashCardApp.Model.Deck;
+using FlashCardApp.Model.Logic;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,46 +23,44 @@ namespace FlashCardApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DeckSelectionPage : Page
+    public sealed partial class BrowsePage : Page
     {
-        public DeckSelectionPage()
+        public BrowsePage()
         {
             this.InitializeComponent();
-            DeckTitles = ViewModel.ViewModel.GetExistingDecks();
-            // feltölt lista
-            // abc sorrendbe rendezés majd!
-            foreach (string title in DeckTitles)
-            {
-                Button btn = new Button
-                {
-                    Content = title,
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Top
-                };
-                btn.Click += Button_Click;
-                stackPanel.Children.Add(btn);
-            }
-        }
 
-        private List<string> DeckTitles;
-        private string NextPageName;
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            switch (NextPageName)
-            {
-                case "Study": this.Frame.Navigate(typeof(StudyPage), button.Content);
-                    break;
-                case "Browse": this.Frame.Navigate(typeof(BrowsePage), button.Content);
-                    break;
-            }
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             BackButton.IsEnabled = this.Frame.CanGoBack;
-            NextPageName = e.Parameter.ToString();
+
+            ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
+            WholeDeckManager.Create(e.Parameter.ToString());
+
+            Title.Text = e.Parameter.ToString();
+
+            List<Card> CardList = WholeDeck.Instance().ListAll();
+
+            for (int i = 0; i < CardList.Count; i++)
+            {
+                CardListGrid.RowDefinitions.Add(new RowDefinition());
+            }
+
+            foreach (var card in CardList)
+            {
+                CardListGrid.RowDefinitions.Add(new RowDefinition());
+
+                TextBlock foreignWord = new TextBlock { Text = card.WordToLearn };
+                TextBlock hungarianWord = new TextBlock { Text = card.Meaning };
+                CardListGrid.Children.Add(foreignWord);
+                CardListGrid.Children.Add(hungarianWord);
+                Grid.SetColumn(foreignWord, 0);
+                Grid.SetColumn(hungarianWord, 1);
+                Grid.SetRow(foreignWord, CardList.IndexOf(card));
+                Grid.SetRow(hungarianWord, CardList.IndexOf(card));
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

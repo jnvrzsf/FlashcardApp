@@ -36,9 +36,15 @@ namespace FlashCardApp
             Application.Current.Exit();
         }
 
-        private void studyBtn_Click(object sender, RoutedEventArgs e)
+        private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DeckSelectionPage));
+            Button button = sender as Button;
+            this.Frame.Navigate(typeof(DeckSelectionPage), button.Content);
+        }
+
+        private void manageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CardCreationPage));
         }
     }
 }

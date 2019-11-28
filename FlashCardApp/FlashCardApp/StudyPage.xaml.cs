@@ -43,10 +43,12 @@ namespace FlashCardApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            BackButton.IsEnabled = this.Frame.CanGoBack;
+
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
             WholeDeckManager.Create(e.Parameter.ToString());
 
-           
+            DeckInProgress.Instance().Clear();
             deckInProgressManager.PickCardsToLearn();
             title.Text = e.Parameter.ToString();
 
@@ -85,6 +87,21 @@ namespace FlashCardApp
 
             foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
             hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning + "5/" + DeckInProgress.Instance().ListAll()[CurrentCardIndex].Hits;
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            On_BackRequested();
+        }
+
+        // Handles system-level BackRequested events and page-level back button Click events
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
         }
     }
 }
