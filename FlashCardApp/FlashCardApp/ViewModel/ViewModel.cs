@@ -18,7 +18,8 @@ namespace FlashCardApp.ViewModel
             FileInfo[] Files = d.GetFiles("*.csv");
             foreach (FileInfo file in Files)
             {
-                existingDecks.Add(file.Name);
+                string[] fileName = file.Name.Split(".");
+                existingDecks.Add(fileName[0]);
             }
             return existingDecks;
         }
