@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashCardApp.Model.Deck;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,24 +26,55 @@ namespace FlashCardApp
         public DeckSelectionPage()
         {
             this.InitializeComponent();
-            // abc sorrend
-            for (int i = 0; i < 30; i++) // foreach lesz
+            DeckTitles = ViewModel.ViewModel.GetExistingDecks();
+            // feltölt lista
+            // abc sorrendbe rendezés majd!
+            foreach (string title in DeckTitles)
             {
                 Button btn = new Button
                 {
-                    Content = "Deck" + i,
+                    Content = title,
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Top
                 };
                 btn.Click += Button_Click;
                 stackPanel.Children.Add(btn);
-            } 
+            }
         }
+
+        public List<string> DeckTitles;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // databinding majd ide, átadja a button contentjét
-            this.Frame.Navigate(typeof(StudyPage)); 
+            Button button = sender as Button;
+            this.Frame.Navigate(typeof(StudyPage), button.Content);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            BackButton.IsEnabled = this.Frame.CanGoBack;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            On_BackRequested();
+        }
+
+        // Handles system-level BackRequested events and page-level back button Click events
+        private bool On_BackRequested()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+                return true;
+            }
+            return false;
+        }
+
+        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            On_BackRequested();
+            args.Handled = true;
         }
     }
 }
