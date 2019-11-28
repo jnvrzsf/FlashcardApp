@@ -122,6 +122,9 @@
     <Compile Include="BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CardCreationPage.xaml.cs">
+      <DependentUpon>CardCreationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeckSelectionPage.xaml.cs">
       <DependentUpon>DeckSelectionPage.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="BrowsePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CardCreationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
