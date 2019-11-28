@@ -13,10 +13,10 @@ namespace ModelTests
     public class FileHandlingTest
     {
         ManageWholeDeck mwd = new ManageWholeDeck();
+
         [TestMethod]
         public void ReadAnimalsDeckFromFile()
         {
-            
             mwd.Create("Animals");
             Assert.AreEqual(30, WholeDeck.Instance().ListAll().Count);
             Assert.AreEqual("cock", WholeDeck.Instance().ListAll()[2].WordToLearn);

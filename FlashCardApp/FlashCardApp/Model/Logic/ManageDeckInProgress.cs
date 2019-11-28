@@ -12,17 +12,18 @@ namespace FlashCardApp.Model.Logic
     public class ManageDeckInProgress
     {
         LearningLogic logic = new LearningLogic();
-        private int numberOfCardsWeWantToLearn = 5;
+        public int NumberOfCardsWeWantToLearn { get; private set; }
 
         #region constructors
         /* Megadhatjuk, hogy hány kártyát akarunk a DeckInProgressbe rakni (tetszőleges szám) */
         public ManageDeckInProgress(int numberOfCardsWeWantToLearn)
         {
-            this.numberOfCardsWeWantToLearn = numberOfCardsWeWantToLearn;
+            NumberOfCardsWeWantToLearn = numberOfCardsWeWantToLearn;
         }
         /* Default beállításokkal készítjük el a DeckInProgresst (5 kártya kerül bele)*/
         public ManageDeckInProgress()
         {
+            NumberOfCardsWeWantToLearn = 5;
         }
         #endregion
 
@@ -47,7 +48,7 @@ namespace FlashCardApp.Model.Logic
         {
             foreach (Card card in WholeDeck.Instance().ListAll())
             {
-                if (logic.ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < numberOfCardsWeWantToLearn)
+                if (logic.ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < NumberOfCardsWeWantToLearn)
                 {
                     DeckInProgress.Instance().Add(card);
                 }
