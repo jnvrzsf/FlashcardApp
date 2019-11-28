@@ -17,6 +17,7 @@ namespace FlashCardApp.Model.Logic
         
         public void Create(string FileName)
         {
+            WholeDeck.Instance().Clear();
             var Path = AppDomain.CurrentDomain.BaseDirectory + "Files\\"+FileName+".csv";
             StreamReader f = new StreamReader(Path);
             while (!f.EndOfStream)
