@@ -42,17 +42,25 @@ namespace FlashCardApp
             }
         }
 
-        public List<string> DeckTitles;
+        private List<string> DeckTitles;
+        private string NextPageName;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            this.Frame.Navigate(typeof(StudyPage), button.Content);
+            switch (NextPageName)
+            {
+                case "Study": this.Frame.Navigate(typeof(StudyPage), button.Content);
+                    break;
+                case "Browse": this.Frame.Navigate(typeof(BrowsePage), button.Content);
+                    break;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             BackButton.IsEnabled = this.Frame.CanGoBack;
+            NextPageName = e.Parameter.ToString();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -69,12 +77,6 @@ namespace FlashCardApp
                 return true;
             }
             return false;
-        }
-
-        private void BackInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            On_BackRequested();
-            args.Handled = true;
         }
     }
 }
