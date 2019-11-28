@@ -40,10 +40,10 @@ namespace FlashCardApp.Model.Cards
         }
 
         #region interactions
-        /*  A felhasználó által adott válasz validációja */
-        public void DealWithAnswer(bool validity)
+        /*  A felhasználó által adott válasz kezelése */
+        public void DealWithAnswer(bool isCorrect)
         {
-            if (validity)
+            if (isCorrect && Hits < 5)
             {
                 Hits++;
                 CalculateAmountOfHits();
