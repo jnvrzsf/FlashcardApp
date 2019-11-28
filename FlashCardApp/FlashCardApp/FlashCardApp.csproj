@@ -137,6 +137,7 @@
     <Compile Include="StudyPage.xaml.cs">
       <DependentUpon>StudyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -177,7 +178,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
