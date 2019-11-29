@@ -10,10 +10,9 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-            <TextBlock x:Name="pageTitle" Text="Flashcards" HorizontalAlignment="Center" FontSize="36"/>
+            <TextBlock x:Name="pageTitle" Text="Flashcards" HorizontalAlignment="Center" FontSize="32"/>
             <Button x:Name="studyBtn" Content="Study" HorizontalAlignment="Center" Width="150" Click="Btn_Click"></Button>
             <Button x:Name="browseBtn" Content="Browse" HorizontalAlignment="Center" Width="150" Click="Btn_Click"></Button>
-            <Button x:Name="manageBtn" Content="Manage Decks" HorizontalAlignment="Center" Width="150" Click="manageBtn_Click"></Button>
             <Button x:Name="exitBtn" Content="Exit" HorizontalAlignment="Center" Width="150" Click="exitBtn_Click"></Button>
         </StackPanel>
     </Grid>
