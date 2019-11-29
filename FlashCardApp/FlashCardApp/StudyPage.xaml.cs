@@ -46,7 +46,7 @@ namespace FlashCardApp
             BackButton.IsEnabled = this.Frame.CanGoBack;
 
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
-            WholeDeckManager.Create(e.Parameter.ToString());
+            //WholeDeckManager.Create(e.Parameter.ToString());
 
             DeckInProgress.Instance().Clear();
             deckInProgressManager.PickCardsToLearn();
