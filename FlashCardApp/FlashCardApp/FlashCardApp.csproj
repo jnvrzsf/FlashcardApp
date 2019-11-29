@@ -143,6 +143,7 @@
     <Compile Include="StudyPage.xaml.cs">
       <DependentUpon>StudyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\DeckSelectionPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
