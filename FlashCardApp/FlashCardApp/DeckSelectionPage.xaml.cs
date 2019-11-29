@@ -59,7 +59,7 @@ namespace FlashCardApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            BackButton.IsEnabled = this.Frame.CanGoBack;
+            //BackButton.IsEnabled = this.Frame.CanGoBack;
             NextPageName = e.Parameter.ToString();
         }
 

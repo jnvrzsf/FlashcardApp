@@ -122,8 +122,8 @@
     <Compile Include="BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CardCreationPage.xaml.cs">
-      <DependentUpon>CardCreationPage.xaml</DependentUpon>
+    <Compile Include="EditCardPage.xaml.cs">
+      <DependentUpon>EditCardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DeckSelectionPage.xaml.cs">
       <DependentUpon>DeckSelectionPage.xaml</DependentUpon>
@@ -143,6 +143,7 @@
     <Compile Include="StudyPage.xaml.cs">
       <DependentUpon>StudyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\DeckSelectionPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CardCreationPage.xaml">
+    <Page Include="EditCardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

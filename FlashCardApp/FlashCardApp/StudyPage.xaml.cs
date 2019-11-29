@@ -43,14 +43,14 @@ namespace FlashCardApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            BackButton.IsEnabled = this.Frame.CanGoBack;
+            //BackButton.IsEnabled = this.Frame.CanGoBack;
 
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
             //WholeDeckManager.Create(e.Parameter.ToString());
 
             DeckInProgress.Instance().Clear();
             deckInProgressManager.PickCardsToLearn();
-            title.Text = e.Parameter.ToString();
+            //title.Text = e.Parameter.ToString();
 
             foreignText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].WordToLearn;
             hungarianText.Text = DeckInProgress.Instance().ListAll()[CurrentCardIndex].Meaning + "5/" + DeckInProgress.Instance().ListAll()[CurrentCardIndex].Hits;
