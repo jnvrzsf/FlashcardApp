@@ -15,6 +15,7 @@ namespace ModelTests
         [TestInitialize]
         public void WholeDeckInitialize()
         {
+            WholeDeck.Instance().Clear();
             WholeDeck.Instance().Add(new Card(1, "dog", "kutya"));
             WholeDeck.Instance().Add(new Card(2, "cat", "macska"));
             WholeDeck.Instance().Add(new Card(3, "fish", "hal"));
@@ -30,8 +31,8 @@ namespace ModelTests
             WholeDeck.Instance().Add(new Card(13, "sheep", "bárány"));
             WholeDeck.Instance().Add(new Card(14, "eagle", "sas"));
             WholeDeck.Instance().Add(new Card(15, "falcon", "sólyom"));
-
         }
+
         [TestMethod]
         public void CardCreating()
         {
@@ -52,7 +53,7 @@ namespace ModelTests
             ManageDeckInProgress deckManager = new ManageDeckInProgress();
             deckManager.PickCardsToLearn();
 
-            Assert.AreEqual(10, DeckInProgress.Instance().ListAll().Count);
+            Assert.AreEqual(deckManager.NumberOfCardsWeWantToLearn, DeckInProgress.Instance().ListAll().Count);
         }
 
         [TestMethod]

@@ -30,6 +30,7 @@ namespace FlashCardApp.Model.Cards
             WordToLearn = wordToLearn;
             Meaning = meaning;
             Hits = hit;
+            CalculateAmountOfHits();
         }
         public Card(int id, string wordToLearn, string meaning)
         {
@@ -37,15 +38,15 @@ namespace FlashCardApp.Model.Cards
             WordToLearn = wordToLearn;
             Meaning = meaning;
             ColourOfTheCard = "red";
+            Hits = 0;
         }
 
         #region interactions
-        /*  A felhasználó által adott válasz validációja */
-        public void DealWithAnswer(bool validity)
+        /*  A felhasználó által adott válasz kezelése */
+        public void DealWithAnswer(bool isCorrect)
         {
-            if (validity)
+            if (isCorrect)
             {
-                Hits++;
                 CalculateAmountOfHits();
             }
             else
@@ -58,7 +59,7 @@ namespace FlashCardApp.Model.Cards
         /* Eldönti, hogy megtanulta-e már a szót */
         private void CalculateAmountOfHits()
         {
-            if (Hits >= 5)
+            if (Hits == 5)
             {
                 IsLearned = true;
                 ColourOfTheCard = "green";
@@ -67,6 +68,12 @@ namespace FlashCardApp.Model.Cards
             {
                 AmountOfHitsIsGoodEnough = true;
                 ColourOfTheCard = "yellow";
+                Hits++;
+            }
+            else
+            {
+                ColourOfTheCard = "red";
+                Hits++;
             }
         }
         #endregion

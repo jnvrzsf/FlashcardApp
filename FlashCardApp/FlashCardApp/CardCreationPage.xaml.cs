@@ -1,5 +1,4 @@
-﻿using FlashCardApp.Model.Deck;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,46 +20,16 @@ namespace FlashCardApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DeckSelectionPage : Page
+    public sealed partial class CardCreationPage : Page
     {
-        public DeckSelectionPage()
+        public CardCreationPage()
         {
             this.InitializeComponent();
-            DeckTitles = ViewModel.ViewModel.GetExistingDecks();
-            // feltölt lista
-            // abc sorrendbe rendezés majd!
-            foreach (string title in DeckTitles)
-            {
-                Button btn = new Button
-                {
-                    Content = title,
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    VerticalAlignment = VerticalAlignment.Top
-                };
-                btn.Click += Button_Click;
-                stackPanel.Children.Add(btn);
-            }
-        }
-
-        private List<string> DeckTitles;
-        private string NextPageName;
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            switch (NextPageName)
-            {
-                case "Study": this.Frame.Navigate(typeof(StudyPage), button.Content);
-                    break;
-                case "Browse": this.Frame.Navigate(typeof(BrowsePage), button.Content);
-                    break;
-            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             BackButton.IsEnabled = this.Frame.CanGoBack;
-            NextPageName = e.Parameter.ToString();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
