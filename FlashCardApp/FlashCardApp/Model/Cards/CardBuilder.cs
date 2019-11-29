@@ -13,7 +13,7 @@ namespace FlashCardApp.Model.Cards
 
         public CardBuilder(string deckName)
         {
-            deckManager.Create(deckName);
+            deckManager.Create();
         }
     }
 }
