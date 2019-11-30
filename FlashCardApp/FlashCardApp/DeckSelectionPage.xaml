@@ -15,7 +15,7 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <TextBlock Text="Select deck" HorizontalAlignment="Center" FontSize="30"/>
+        <TextBlock Text="Select deck" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"/>
 
         <ScrollViewer>
             <ItemsControl ItemsSource="{x:Bind ViewModel.DeckNames}">

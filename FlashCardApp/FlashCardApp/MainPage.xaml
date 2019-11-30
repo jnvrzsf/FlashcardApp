@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-            <TextBlock x:Name="pageTitle" Text="Flashcards" HorizontalAlignment="Center" FontSize="32"/>
+            <TextBlock x:Name="pageTitle" Text="Flashcards" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center"/>
             <Button x:Name="studyBtn" Content="Study" HorizontalAlignment="Stretch" Click="Btn_Click" ></Button>
             <Button x:Name="browseBtn" Content="Browse" HorizontalAlignment="Stretch" Click="Btn_Click"></Button>
             <Button x:Name="exitBtn" Content="Exit" HorizontalAlignment="Stretch" Click="exitBtn_Click"></Button>
