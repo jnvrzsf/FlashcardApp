@@ -1,6 +1,7 @@
 ﻿using FlashCardApp.Model.Cards;
 using FlashCardApp.Model.Deck;
 using FlashCardApp.Model.Logic;
+using FlashCardApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,15 +26,18 @@ namespace FlashCardApp
     /// </summary>
     public sealed partial class BrowsePage : Page
     {
+        private BrowsePageViewModel ViewModel { get; set; }
         public BrowsePage()
         {
             this.InitializeComponent();
-
-            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+            //Deck deck = Deck.Load((string)e.Parameter);
+            //ViewModel = new BrowsePageViewModel(deck);
+
             BackButton.IsEnabled = this.Frame.CanGoBack;
 
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
