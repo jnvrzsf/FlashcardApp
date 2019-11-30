@@ -9,6 +9,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using CsvHelper;
+using System.Reflection;
 
 namespace FlashCardApp.Model.Deck
 {
@@ -18,7 +19,7 @@ namespace FlashCardApp.Model.Deck
         /// <summary>
         /// Kártyák a pakliban
         /// </summary>
-        protected Dictionary<int, Card> Cards = new Dictionary<int, Card>();
+        public List<Card> Cards = new List<Card>();
 
         /// <summary>
         /// Pakli neve
@@ -48,26 +49,20 @@ namespace FlashCardApp.Model.Deck
         /* Paklihoz hozzáad */
         public void Add(Card card)
         {
-            if (Cards.ContainsKey(card.ID)) return;
-            Cards.Add(card.ID, card);
+            if (Cards.Contains(card)) return;
+            Cards.Add(card);
         }
 
         /* Elvesz a pakliból */
         public void Remove(Card card)
         {
-            Cards.Remove(card.ID);
+            Cards.Remove(card);
         }
         public void Clear()
         {
             Cards.Clear();
         }
         #endregion
-
-        /* Kilistázás */
-        public List<Card> ListAll()
-        {
-            return Cards.Values.ToList();
-        }
 
         /// <summary>
         /// Kislistázza az elérhető paklikat
@@ -95,7 +90,55 @@ namespace FlashCardApp.Model.Deck
         /// <returns></returns>
         public static Deck Load(string name)
         {
-            throw new NotImplementedException();
+            var deck = new Deck(name);
+            using (var textReader = new StreamReader(PathForName(name), Encoding.UTF8))
+            using (var csvReader = new CsvReader(textReader))
+            {
+                csvReader.Configuration.Delimiter = ",";
+                deck.Cards.AddRange(csvReader.GetRecords<Card>());
+            }
+            return deck;
+        }
+
+        /// <summary>
+        /// Visszaadja adott nevű pakli elérési útját.
+        /// </summary>
+        /// <param name="name">Pakli neve</param>
+        /// <returns>Pakli elérési útja</returns>
+        private static string PathForName(string name)
+        {
+            return Path.Combine(RootDirectory, $"{name}.csv");
+        }
+
+        /// <summary>
+        /// Átmásolja a beágyazott paklikat első indításkor
+        /// </summary>
+        public static void CopyEmbeddedDecksOnFirstLaunch()
+        {
+            // Ha még nem létezik a mappánk, akkor feltételezzük, hogy először futunk
+            if (!Directory.Exists(RootDirectory))
+            {
+                // Létrehozzuk a mappánk
+                Directory.CreateDirectory(RootDirectory);
+
+                // Végigmegyünk az alkalmazásba ágyazott erőforrásokon
+                foreach (var name in Assembly.GetExecutingAssembly().GetManifestResourceNames())
+                {
+                    // Ha a Decks almappából volt beágyazva, akkor pakli
+                    if (name.StartsWith(EmbeddedDeckPrefix))
+                    {
+                        // Levágjuk a prefixet, hogy megkapjuk a fájl nevét
+                        var targetFileName = name.Substring(EmbeddedDeckPrefix.Length + 1);
+
+                        // Kimásoljuk a tartalmát egy, a mappánkban lévő fájlba
+                        using (var inputStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name))
+                        using (var outputStream = File.OpenWrite(Path.Combine(RootDirectory, targetFileName)))
+                        {
+                            inputStream.CopyTo(outputStream);
+                        }
+                    }
+                }
+            }
         }
     }
 }
