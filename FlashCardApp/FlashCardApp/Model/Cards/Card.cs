@@ -14,7 +14,7 @@ namespace FlashCardApp.Model.Cards
         /* Találatok száma */
         public int HitCount { get; private set; }
 
-        public Card(string wordToLearn, string meaning, int hit)
+        public Card(int id, string wordToLearn, string meaning, int hit)
         {
             WordToLearn = wordToLearn;
             Meaning = meaning;

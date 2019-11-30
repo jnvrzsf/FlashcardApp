@@ -49,15 +49,15 @@ namespace FlashCardApp.Model.Logic
             var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/" + FileName + ".csv";
             StreamWriter r = new StreamWriter(Path);
             string tmp;
-            for (int i = 0; i < WholeDeck.Instance().ListAll().Count; i++)
+            //for (int i = 0; i < WholeDeck.Instance().ListAll().Count; i++)
             //WholeDeck.Instance().Clear();
             //var Path = AppDomain.CurrentDomain.BaseDirectory + "Files\\"+FileName+".csv";
             //StreamReader f = new StreamReader(Path);
             //while (!f.EndOfStream)
             {
-                tmp = Convert.ToString(WholeDeck.Instance().ListAll()[i].ID) + "," + WholeDeck.Instance().ListAll()[i].WordToLearn + ","
-                    + WholeDeck.Instance().ListAll()[i].Meaning + "," + WholeDeck.Instance().ListAll()[i].HitCount;
-                r.Write(tmp);
+               // tmp = Convert.ToString(WholeDeck.Instance().ListAll()[i].ID) + "," + WholeDeck.Instance().ListAll()[i].WordToLearn + ","
+               //     + WholeDeck.Instance().ListAll()[i].Meaning + "," + WholeDeck.Instance().ListAll()[i].HitCount;
+               // r.Write(tmp);
             }
             r.Close();
         }

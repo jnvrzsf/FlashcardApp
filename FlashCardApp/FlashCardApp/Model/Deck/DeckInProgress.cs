@@ -15,10 +15,5 @@ namespace FlashCardApp.Model.Deck
         {
         }
 
-        public void Shuffle()
-        {
-            Random random = new Random();
-            Cards = Cards.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
-        }
     }
 }
