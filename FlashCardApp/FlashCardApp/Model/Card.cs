@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 
-namespace FlashCardApp.Model.Cards
+namespace FlashCardApp.Model
 {
     public class Card
     {

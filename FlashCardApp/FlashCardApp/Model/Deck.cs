@@ -1,17 +1,12 @@
-﻿using FlashCardApp.Model.Cards;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.UI.Popups;
 using CsvHelper;
 using System.Reflection;
 
-namespace FlashCardApp.Model.Deck
+namespace FlashCardApp.Model
 {
     /* Absztrakt osztály, a paklik közös funkciói vannak itt */
     public class Deck
@@ -98,6 +93,19 @@ namespace FlashCardApp.Model.Deck
                 deck.Cards.AddRange(csvReader.GetRecords<Card>());
             }
             return deck;
+        }
+
+        /// <summary>
+        /// Pakli mentése a fájlrendszerbe
+        /// </summary>
+        public void Save()
+        {
+            using (var textWriter = new StreamWriter(PathForName(Name), false, Encoding.UTF8))
+            using (var cvsWriter = new CsvWriter(textWriter))
+            {
+                cvsWriter.Configuration.Delimiter = ",";
+                cvsWriter.WriteRecords(Cards);
+            }
         }
 
         /// <summary>
