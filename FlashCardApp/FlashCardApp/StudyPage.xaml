@@ -11,6 +11,7 @@
 
     <UserControl.Resources>
         <vm:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <vm:ColorToSolidColorBrushConverter x:Key="ColorToSolidColorBrushConverter"/>
     </UserControl.Resources>
     
     <Grid>
