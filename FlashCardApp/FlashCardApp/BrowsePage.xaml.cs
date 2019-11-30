@@ -41,25 +41,25 @@ namespace FlashCardApp
 
             Title.Text = e.Parameter.ToString();
 
-            List<Card> CardList = WholeDeck.Instance().ListAll();
+            //List<Card> CardList = WholeDeck.Instance().ListAll();
 
-            for (int i = 0; i < CardList.Count; i++)
+            //for (int i = 0; i < CardList.Count; i++)
             {
                 CardListGrid.RowDefinitions.Add(new RowDefinition());
             }
 
-            foreach (var card in CardList)
+            //foreach (var card in CardList)
             {
                 CardListGrid.RowDefinitions.Add(new RowDefinition());
 
-                TextBlock foreignWord = new TextBlock { Text = card.WordToLearn };
-                TextBlock hungarianWord = new TextBlock { Text = card.Meaning };
-                CardListGrid.Children.Add(foreignWord);
-                CardListGrid.Children.Add(hungarianWord);
-                Grid.SetColumn(foreignWord, 0);
-                Grid.SetColumn(hungarianWord, 1);
-                Grid.SetRow(foreignWord, CardList.IndexOf(card));
-                Grid.SetRow(hungarianWord, CardList.IndexOf(card));
+                //TextBlock foreignWord = new TextBlock { Text = card.WordToLearn };
+                //TextBlock hungarianWord = new TextBlock { Text = card.Meaning };
+                //CardListGrid.Children.Add(foreignWord);
+                //CardListGrid.Children.Add(hungarianWord);
+                //Grid.SetColumn(foreignWord, 0);
+                //Grid.SetColumn(hungarianWord, 1);
+                //Grid.SetRow(foreignWord, CardList.IndexOf(card));
+                //Grid.SetRow(hungarianWord, CardList.IndexOf(card));
             }
         }
 

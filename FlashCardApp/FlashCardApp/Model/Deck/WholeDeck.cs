@@ -10,9 +10,9 @@ namespace FlashCardApp.Model.Deck
      * Lényege, hogy a fájlban tárolt összes szó párt elérhetővé tegye*/
     public class WholeDeck : Deck
     {
-        private static WholeDeck instance = new WholeDeck();
+        private static WholeDeck instance = new WholeDeck("");
         public static WholeDeck Instance() { return instance; }
-        private WholeDeck() : base()
+        private WholeDeck(string fileName) : base(fileName)
         {
         }
     }

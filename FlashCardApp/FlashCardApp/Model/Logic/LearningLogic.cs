@@ -10,9 +10,9 @@ namespace FlashCardApp.Model.Logic
     public class LearningLogic
     {
         #region variables
-        private double green = 0.9; //biztosan tudja
-        private double yellow = 0.6; //még nem biztos a tudás
-        private double red = 0.0; //abszolút nem tudja
+        //private double green = 0.9; //biztosan tudja
+        //private double yellow = 0.6; //még nem biztos a tudás
+        //private double red = 0.0; //abszolút nem tudja
         Random random = new Random();
         #endregion
 
@@ -25,6 +25,7 @@ namespace FlashCardApp.Model.Logic
         #region Logic
         /* Egy adott prioritás és egy véletlenszerűen generált szám alapján eldöntjük, hogy
          * az adott kártyát behelyezzük-e a DeckInProgress-be. */
+        /*
         public bool ShouldWeAddCardToDeckInProgress(Card card)
         {
             double randomNumber = random.NextDouble();
@@ -43,6 +44,7 @@ namespace FlashCardApp.Model.Logic
             }
             return false;
         }
+        */
         #endregion
     }
 }

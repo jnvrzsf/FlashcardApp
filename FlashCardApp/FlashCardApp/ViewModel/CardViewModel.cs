@@ -18,11 +18,11 @@ namespace FlashCardApp.ViewModel
         {
             get
             {
-                if (Card.Hits == 0)
+                if (Card.HitCount == 0)
                 {
                     return Colors.Red;
                 }
-                else if (Card.Hits < 5)
+                else if (Card.HitCount < 5)
                 {
                     return Colors.Yellow;
                 }

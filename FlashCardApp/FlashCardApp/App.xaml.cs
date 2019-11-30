@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashCardApp.Model.Deck;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,6 +41,9 @@ namespace FlashCardApp
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+
+            // Másoljuk be a kezdő deckeket
+            Deck.CopyEmbeddedDecksOnFirstLaunch();
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
