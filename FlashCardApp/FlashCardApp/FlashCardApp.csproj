@@ -147,6 +147,7 @@
     <Compile Include="ViewModel\BrowsePageViewModel.cs" />
     <Compile Include="ViewModel\CardViewModel.cs" />
     <Compile Include="ViewModel\DeckSelectionPageViewModel.cs" />
+    <Compile Include="ViewModel\ColorToSolidColorBrushConverter.cs" />
     <Compile Include="ViewModel\StudyPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
