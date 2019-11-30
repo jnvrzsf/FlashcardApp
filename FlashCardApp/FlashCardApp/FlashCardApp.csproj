@@ -143,6 +143,7 @@
     <Compile Include="StudyPage.xaml.cs">
       <DependentUpon>StudyPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModel\BrowsePageViewModel.cs" />
     <Compile Include="ViewModel\CardViewModel.cs" />
     <Compile Include="ViewModel\DeckSelectionPageViewModel.cs" />

@@ -19,7 +19,12 @@ namespace FlashCardApp.ViewModel
         /// <summary>
         /// A kiválasztott pakli
         /// </summary>
-        Deck Deck { get; }
+        private Deck Deck { get; }
+
+        /// <summary>
+        /// A kiválasztott pakli neve
+        /// </summary>
+        public string DeckName => Deck.Name;
 
         /// <summary>
         /// Az aktuális kártyák, amiket tanít
