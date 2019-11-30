@@ -42,7 +42,7 @@ namespace FlashCardApp
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            //ViewModel.IsRevealed = true;
+            ViewModel.IsRevealed = true;
         }
     }
 }

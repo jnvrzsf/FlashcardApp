@@ -9,6 +9,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <UserControl.Resources>
+        <vm:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -25,7 +29,7 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <Rectangle x:Name="rectangle" Grid.Row="1" Width="300" Height="450" Fill="Cornsilk" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Rectangle_Tapped"/>
+        <Rectangle x:Name="rectangle" Grid.Row="1" Width="300" Height="450" Fill="{x:Bind ViewModel.CurrentCard.BackgroundBrush, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Rectangle_Tapped"/>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -39,9 +43,9 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="1" Text="Deck name" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="1" Grid.Column="1"  x:Name="foreignText" Text="Foreign word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="hungarianText" Text="Hungarian word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"  Visibility="Collapsed"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Bind ViewModel.DeckName, Mode=OneWay}" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="1" Grid.Column="1"  x:Name="foreignText" Text="{x:Bind ViewModel.CurrentCard.Word, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="hungarianText" Text="{x:Bind ViewModel.CurrentCard.Meaning, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="{x:Bind ViewModel.IsRevealed, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}"/>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -49,12 +53,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="wrongBtn" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF18587" Visibility="Collapsed">
+            <Button x:Name="wrongBtn" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF18587" Visibility="{x:Bind ViewModel.IsRevealed, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Command="{x:Bind ViewModel.IncorrectCommand}">
                 <Button.Content>
                     <SymbolIcon Symbol="Clear"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="rightBtn" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF71E07E" Visibility="Collapsed">
+            <Button x:Name="rightBtn" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF71E07E" Visibility="{x:Bind ViewModel.IsRevealed, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}" Command="{x:Bind ViewModel.CorrectCommand}">
                 <Button.Content>
                     <SymbolIcon Symbol="Accept"/>
                 </Button.Content>
