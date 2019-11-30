@@ -8,11 +8,11 @@ namespace FlashCardApp.Model.Cards
 {
     public class Card
     {
-        public string WordToLearn { get; private set; }
-        public string Meaning { get; private set; }
+        public string WordToLearn { get; set; }
+        public string Meaning { get; set; }
         
         /* Találatok száma */
-        public int HitCount { get; private set; }
+        public int HitCount { get; set; }
 
         public Card(int id, string wordToLearn, string meaning, int hit)
         {
