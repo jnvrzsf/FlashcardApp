@@ -10,6 +10,8 @@ namespace FlashCardApp.ViewModel
         /// </summary>
         public List<string> DeckNames { get; }
 
+        public string NextPage { get; set; }
+
         /// <summary>
         /// Konstruktor
         /// </summary>
