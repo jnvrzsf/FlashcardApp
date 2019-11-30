@@ -96,6 +96,19 @@ namespace FlashCardApp.Model
         }
 
         /// <summary>
+        /// Pakli mentése a fájlrendszerbe
+        /// </summary>
+        public void Save()
+        {
+            using (var textWriter = new StreamWriter(PathForName(Name), false, Encoding.UTF8))
+            using (var cvsWriter = new CsvWriter(textWriter))
+            {
+                cvsWriter.Configuration.Delimiter = ",";
+                cvsWriter.WriteRecords(Cards);
+            }
+        }
+
+        /// <summary>
         /// Visszaadja adott nevű pakli elérési útját.
         /// </summary>
         /// <param name="name">Pakli neve</param>
