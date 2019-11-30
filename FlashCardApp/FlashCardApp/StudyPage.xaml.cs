@@ -44,7 +44,7 @@ namespace FlashCardApp
             DeckInProgress.Instance().Clear();
 
             ManageDeckInProgress deckInProgressManager = new ManageDeckInProgress();
-            deckInProgressManager.PickCardsToLearn();
+            //deckInProgressManager.PickCardsToLearn();
         }
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)

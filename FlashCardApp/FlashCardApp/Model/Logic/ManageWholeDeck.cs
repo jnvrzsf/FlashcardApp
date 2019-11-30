@@ -56,7 +56,7 @@ namespace FlashCardApp.Model.Logic
             //while (!f.EndOfStream)
             {
                 tmp = Convert.ToString(WholeDeck.Instance().ListAll()[i].ID) + "," + WholeDeck.Instance().ListAll()[i].WordToLearn + ","
-                    + WholeDeck.Instance().ListAll()[i].Meaning + "," + WholeDeck.Instance().ListAll()[i].Hits;
+                    + WholeDeck.Instance().ListAll()[i].Meaning + "," + WholeDeck.Instance().ListAll()[i].HitCount;
                 r.Write(tmp);
             }
             r.Close();

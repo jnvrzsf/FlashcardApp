@@ -27,33 +27,33 @@ namespace FlashCardApp.Model.Logic
         }
         #endregion
 
-        #region Handling DeckInProgress
-        /* Ellenőrzi az aktuálisan a tanulni valók között lévő kártyákat,
-         * és amennyiben azt az illető már tudja (legalább ötször egymás után eltalálja),
-         akkor azt a kártyát kitörli onnan, és a helyébe egy újat tesz be. */
-        public void CheckDeckInProgress()
-        {
-            foreach (Card card in DeckInProgress.Instance().ListAll())
-            {
-                if (card.AmountOfHitsIsGoodEnough)
-                {
-                    DeckInProgress.Instance().Remove(card);
-                    PickCardsToLearn();
-                }
-            }
-        }
+        //#region Handling DeckInProgress
+        ///* Ellenőrzi az aktuálisan a tanulni valók között lévő kártyákat,
+        // * és amennyiben azt az illető már tudja (legalább ötször egymás után eltalálja),
+        // akkor azt a kártyát kitörli onnan, és a helyébe egy újat tesz be. */
+        //public void CheckDeckInProgress()
+        //{
+        //    foreach (Card card in DeckInProgress.Instance().ListAll())
+        //    {
+        //        if (card.AmountOfHitsIsGoodEnough)
+        //        {
+        //            DeckInProgress.Instance().Remove(card);
+        //            PickCardsToLearn();
+        //        }
+        //    }
+        //}
 
-        /* Kártyát helyez az aktuálisan tanulandó szavak listájába (max 10) */
-        public void PickCardsToLearn()
-        {
-            foreach (Card card in WholeDeck.Instance().ListAll())
-            {
-                if (logic.ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < NumberOfCardsWeWantToLearn)
-                {
-                    DeckInProgress.Instance().Add(card);
-                }
-            }
-        }
-        #endregion
+        ///* Kártyát helyez az aktuálisan tanulandó szavak listájába (max 10) */
+        //public void PickCardsToLearn()
+        //{
+        //    foreach (Card card in WholeDeck.Instance().ListAll())
+        //    {
+        //        if (logic.ShouldWeAddCardToDeckInProgress(card) && DeckInProgress.Instance().ListAll().Count < NumberOfCardsWeWantToLearn)
+        //        {
+        //            DeckInProgress.Instance().Add(card);
+        //        }
+        //    }
+        //}
+        //#endregion
     }
 }

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace FlashCardApp.Model.Deck
 {
-    ///* Aktuális pakli */
-    //public class DeckInProgress : Deck
-    //{
-    //    private static DeckInProgress instance = new DeckInProgress();
-    //    public static DeckInProgress Instance() { return instance; }
-    //    private DeckInProgress()
-    //    {
-    //    }
+    /* Aktuális pakli */
+    public class DeckInProgress : Deck
+    {
+        private static DeckInProgress instance = new DeckInProgress("");
+        public static DeckInProgress Instance() { return instance; }
+        private DeckInProgress(string fileName) : base(fileName)
+        {
+        }
 
-    //    public void Shuffle()
-    //    {
-    //        Random random = new Random();
-    //        Cards = Cards.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
-    //    }
-    //}
+        public void Shuffle()
+        {
+            Random random = new Random();
+            Cards = Cards.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
+        }
+    }
 }

@@ -31,17 +31,17 @@ namespace FlashCardApp.Model.Deck
         private static string RootDirectory => Path.Combine(ApplicationData.Current.RoamingFolder.Path, "Decks");
 
         /// <summary>
+        /// A beágyazott paklik nevének közös előtagja
+        /// </summary>
+        private const string EmbeddedDeckPrefix = "FlashCardApp.Decks";
+
+        /// <summary>
         /// Konstruktor
         /// </summary>
         /// <param name="name"></param>
         public Deck(string name)
         {
             Name = name;
-        }
-
-        public Deck()
-        {
-
         }
 
         #region Adding and Removing
@@ -76,14 +76,16 @@ namespace FlashCardApp.Model.Deck
         public static List<string> GetListOfDeckNames()
         {
             List<string> existingDecks = new List<string>();
-            DirectoryInfo d = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Files\\");
-            FileInfo[] Files = d.GetFiles("*.csv");
-            foreach (FileInfo file in Files)
+            if (Directory.Exists(RootDirectory))
             {
-                string[] fileName = file.Name.Split(".");
-                existingDecks.Add(fileName[0]);
+                return Directory
+                .EnumerateFiles(RootDirectory, "*.csv", SearchOption.TopDirectoryOnly)
+                .Select(e => Path.GetFileNameWithoutExtension(e)).ToList();
             }
-            return existingDecks;
+            else
+            {
+                return Enumerable.Empty<string>().ToList();
+            }
         }
 
         /// <summary>
