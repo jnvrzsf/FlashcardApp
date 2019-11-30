@@ -38,13 +38,6 @@ namespace FlashCardApp
             base.OnNavigatedTo(e);
             Deck deck = Deck.Load((string)e.Parameter);
             ViewModel = new StudyPageViewModel(deck);
-
-            //ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
-            //WholeDeckManager.Create();
-            //DeckInProgress.Instance().Clear();
-
-            //ManageDeckInProgress deckInProgressManager = new ManageDeckInProgress();
-            //deckInProgressManager.PickCardsToLearn();
         }
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)

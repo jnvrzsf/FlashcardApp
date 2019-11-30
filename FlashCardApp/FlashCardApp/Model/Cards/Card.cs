@@ -9,19 +9,19 @@ namespace FlashCardApp.Model.Cards
         /// </summary>
         [Index(0)]
         [Name("Word")]
-        public string Word { get; private set; }
+        public string Word { get; set; }
         /// <summary>
         /// Magyar megfelelője
         /// </summary>
         [Index(1)]
         [Name("Meaning")]
-        public string Meaning { get; private set; }
+        public string Meaning { get; set; }
         /// <summary>
         /// Helyes válaszok száma
         /// </summary>
         [Index(2)]
         [Name("HitCount")]
-        public int HitCount { get; private set; }
+        public int HitCount { get; set; }
 
         public Card(string Word, string Meaning, int HitCount)
         {
