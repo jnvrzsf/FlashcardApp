@@ -11,15 +11,26 @@
     <StackPanel>
         <CommandBar OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <Button Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" Click="Back_Click"/>
+                <Button Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top"/>
             </CommandBar.Content>
         </CommandBar>
 
         <TextBlock Text="Select deck" HorizontalAlignment="Center" FontSize="30"/>
 
         <ScrollViewer>
-            <StackPanel x:Name="stackPanel">
-            </StackPanel>
+            <ItemsControl ItemsSource="{x:Bind ViewModel.DeckNames}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Stretch" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" HorizontalAlignment="Stretch" Click="Button_Click" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
+
     </StackPanel>
 </Page>

@@ -21,7 +21,7 @@
 
         <CommandBar Grid.Row="0" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
-                <Button Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" Click="Back_Click"/>
+                <Button Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top"/>
             </CommandBar.Content>
         </CommandBar>
 
@@ -48,12 +48,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="wrongBtn" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF18587" Visibility="Collapsed" Click="wrongBtn_Click">
+            <Button x:Name="wrongBtn" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF18587" Visibility="Collapsed">
                 <Button.Content>
                     <SymbolIcon Symbol="Clear"/>
                 </Button.Content>
             </Button>
-            <Button x:Name="rightBtn" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF71E07E" Visibility="Collapsed" Click="rightBtn_Click">
+            <Button x:Name="rightBtn" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF71E07E" Visibility="Collapsed">
                 <Button.Content>
                     <SymbolIcon Symbol="Accept"/>
                 </Button.Content>
