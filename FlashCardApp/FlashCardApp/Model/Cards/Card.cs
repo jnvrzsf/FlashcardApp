@@ -1,24 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CsvHelper.Configuration.Attributes;
 
 namespace FlashCardApp.Model.Cards
 {
     public class Card
     {
-        public string WordToLearn { get; private set; }
+        /// <summary>
+        /// Idegen nyelvű szó
+        /// </summary>
+        [Index(0)]
+        [Name("Word")]
+        public string Word { get; private set; }
+        /// <summary>
+        /// Magyar megfelelője
+        /// </summary>
+        [Index(1)]
+        [Name("Meaning")]
         public string Meaning { get; private set; }
-        
-        /* Találatok száma */
+        /// <summary>
+        /// Helyes válaszok száma
+        /// </summary>
+        [Index(2)]
+        [Name("HitCount")]
         public int HitCount { get; private set; }
 
-        public Card(int id, string wordToLearn, string meaning, int hit)
+        public Card(string Word, string Meaning, int HitCount)
         {
-            WordToLearn = wordToLearn;
-            Meaning = meaning;
-            HitCount = hit;
+            this.Word = Word;
+            this.Meaning = Meaning;
+            this.HitCount = HitCount;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace FlashCardApp.ViewModel
         public List<Card> Cards;
         public BrowsePageViewModel(Deck deck)
         {
-            //Cards = deck.Cards; // Cards egy List legyen
+            Cards = deck.Cards; // Cards egy List legyen
         }
     }
 }

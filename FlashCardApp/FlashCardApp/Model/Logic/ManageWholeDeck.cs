@@ -36,7 +36,7 @@ namespace FlashCardApp.Model.Logic
                     {
                         var line = sr.ReadLine();
                         var values = line.Split(',');
-                        WholeDeck.Instance().Add(new Cards.Card(Convert.ToInt32(values[0]), values[1], values[2], Convert.ToInt32(values[3])));
+                        WholeDeck.Instance().Add(new Cards.Card(values[1], values[2], Convert.ToInt32(values[3])));
                     }
                     sr.Close();
                 }

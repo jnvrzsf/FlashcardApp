@@ -1,21 +1,21 @@
-id,word,mean,hits
-0,milk,tej,0
-1,tea,tea,0
-2,orange juice,narancslé,0
-3,coffee,kávé,0
-4,honey,méz,0
-5,jam,dzsem,0
-6,butter,vaj,0
-7,cheese,sajt,0
-8,salad,saláta,0
-9,bacon,szalonna,0
-10,ham,sonka,0
-11,boiled egg,főtt tojás,0
-12,fried egg,tükör tojás,0
-13,croissant,kifli,0
-14,roll,zsemle,0
-15,bread,kenyér,0
-16,yoghurt,joghurt,0
-17,muesli,műzli,0
-18,cornflakes,kukoricapehely,0
-19,sausage,kolbász,0
+Word,Meaning,HitCount
+milk,tej,0
+tea,tea,0
+orange juice,narancslé,0
+coffee,kávé,0
+honey,méz,0
+jam,dzsem,0
+butter,vaj,0
+cheese,sajt,0
+salad,saláta,0
+bacon,szalonna,0
+ham,sonka,0
+boiled egg,főtt tojás,0
+fried egg,tükör tojás,0
+croissant,kifli,0
+roll,zsemle,0
+bread,kenyér,0
+yoghurt,joghurt,0
+muesli,műzli,0
+cornflakes,kukoricapehely,0
+sausage,kolbász,0
