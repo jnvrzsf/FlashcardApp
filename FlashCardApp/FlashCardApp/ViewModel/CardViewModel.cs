@@ -1,9 +1,4 @@
-﻿using FlashCardApp.Model.Cards;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlashCardApp.Model;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 

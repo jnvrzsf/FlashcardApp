@@ -131,14 +131,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Cards\Card.cs" />
-    <Compile Include="Model\Cards\CardBuilder.cs" />
-    <Compile Include="Model\Deck\Deck.cs" />
-    <Compile Include="Model\Deck\DeckInProgress.cs" />
-    <Compile Include="Model\Deck\WholeDeck.cs" />
-    <Compile Include="Model\Logic\LearningLogic.cs" />
-    <Compile Include="Model\Logic\ManageDeckInProgress.cs" />
-    <Compile Include="Model\Logic\ManageWholeDeck.cs" />
+    <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\Deck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudyPage.xaml.cs">
       <DependentUpon>StudyPage.xaml</DependentUpon>

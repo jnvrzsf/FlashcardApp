@@ -1,9 +1,8 @@
-﻿using FlashCardApp.Model.Deck;
+﻿using FlashCardApp.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using MoreLinq;
-using FlashCardApp.Model.Cards;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -101,10 +100,6 @@ namespace FlashCardApp.ViewModel
             else
             {
                 var replacement = PickCard();
-                //var replacement = Deck.Cards
-                //    .Except(SubDeck.Select(e => e.Card))
-                //    .Shuffle()
-                //    .FirstOrDefault();
                 NextCard(replacement);
             }
             IsRevealed = false;
