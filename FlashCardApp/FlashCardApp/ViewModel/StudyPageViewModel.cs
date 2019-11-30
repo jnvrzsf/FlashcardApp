@@ -6,6 +6,7 @@ using MoreLinq;
 using FlashCardApp.Model.Cards;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using System;
 
 namespace FlashCardApp.ViewModel
 {
@@ -93,19 +94,44 @@ namespace FlashCardApp.ViewModel
         private void SelectCorrect()
         {
             CurrentCard.Card.HitCount++;
-            if (CurrentCard.Card.HitCount < 3)
+            if (CurrentCard.Card.HitCount < 2)
             {
                 NextCard();
             }
             else
             {
-                var replacement = Deck.Cards
-                    .Except(SubDeck.Select(e => e.Card))
-                    .Shuffle()
-                    .FirstOrDefault();
+                var replacement = PickCard();
+                //var replacement = Deck.Cards
+                //    .Except(SubDeck.Select(e => e.Card))
+                //    .Shuffle()
+                //    .FirstOrDefault();
                 NextCard(replacement);
             }
             IsRevealed = false;
+        }
+
+        public Card PickCard()
+        {
+            var cardsNotInUse = Deck.Cards.Except(SubDeck.Select(e => e.Card));
+            Random random = new Random();
+            double randomNumber = random.Next(0, 10000) / 10000;
+
+            if (randomNumber < 0.5)
+            {
+                return cardsNotInUse.Where(e => e.HitCount < 3).Shuffle().FirstOrDefault();
+            }
+            else if (randomNumber >= 0.5 && randomNumber < 0.7)
+            {
+                return cardsNotInUse.Where(e => e.HitCount >= 3 && e.HitCount < 5).Shuffle().FirstOrDefault();
+            }
+            else if (randomNumber >= 0.7 && randomNumber < 0.90)
+            {
+                return cardsNotInUse.Where(e => e.HitCount >= 5 && e.HitCount < 7).Shuffle().FirstOrDefault();
+            }
+            else
+            {
+                return cardsNotInUse.Where(e => e.HitCount >= 7).Shuffle().FirstOrDefault();
+            }
         }
 
         /// <summary>
