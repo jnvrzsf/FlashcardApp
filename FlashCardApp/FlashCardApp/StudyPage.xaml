@@ -40,8 +40,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="1" Text="Deck name" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <TextBlock Grid.Row="1" Grid.Column="1"  x:Name="foreignText" Text="Foreign word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="hungarianText" Text="Hungarian word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock Grid.Row="1" Grid.Column="1"  x:Name="foreignText" Text="Foreign word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="hungarianText" Text="Hungarian word" Style="{StaticResource SubtitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"  Visibility="Collapsed"/>
         </Grid>
 
         <Grid Grid.Row="2">
