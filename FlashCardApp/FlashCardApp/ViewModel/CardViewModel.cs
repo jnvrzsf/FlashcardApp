@@ -12,7 +12,7 @@ namespace FlashCardApp.ViewModel
     class CardViewModel
     {
         public Card Card { get; set; }
-        public string Word => Card.WordToLearn;
+        public string Word => Card.Word;
         public string Meaning => Card.Meaning;
         public Color BackgroundColor
         {

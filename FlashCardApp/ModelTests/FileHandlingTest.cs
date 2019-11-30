@@ -13,7 +13,11 @@ namespace ModelTests
     [TestClass]
     public class FileHandlingTest
     {
-        ManageWholeDeck mwd = new ManageWholeDeck();
+        ///<summary>
+        ///Régi Fájból beolvasást tesztelő unittesztek.
+        /// </summary>
+        
+        /*ManageWholeDeck mwd = new ManageWholeDeck();
 
         [TestMethod]
         public void ReadAnimalsDeckFromFile()
@@ -49,6 +53,6 @@ namespace ModelTests
             WholeDeck.Instance().Add(new Card(30, "zebra", "zebra", 0));
             mwd.WriteToFile("Animals");
             Assert.AreEqual(31, WholeDeck.Instance().ListAll().Count);
-        }
+        }*/
     }
 }

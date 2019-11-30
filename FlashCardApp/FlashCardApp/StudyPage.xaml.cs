@@ -36,8 +36,8 @@ namespace FlashCardApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //Deck deck = Deck.Load((string)e.Parameter);
-            //ViewModel = new StudyPageViewModel(deck);
+            Deck deck = Deck.Load((string)e.Parameter);
+            ViewModel = new StudyPageViewModel(deck);
         }
 
         private void Rectangle_Tapped(object sender, TappedRoutedEventArgs e)
