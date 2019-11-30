@@ -48,7 +48,7 @@ namespace FlashCardApp.Model.Logic
         {
             var Path = AppDomain.CurrentDomain.BaseDirectory + "/Files/" + FileName + ".csv";
             StreamWriter r = new StreamWriter(Path);
-            string tmp;
+            //string tmp;
             //for (int i = 0; i < WholeDeck.Instance().ListAll().Count; i++)
             //WholeDeck.Instance().Clear();
             //var Path = AppDomain.CurrentDomain.BaseDirectory + "Files\\"+FileName+".csv";
