@@ -13,8 +13,7 @@ namespace FlashCardApp.ViewModel
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            SolidColorBrush brush = (SolidColorBrush)value;
-            return brush;
+            return new SolidColorBrush((Color)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

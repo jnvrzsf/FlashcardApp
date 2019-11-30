@@ -32,7 +32,6 @@ namespace FlashCardApp.ViewModel
                 }
             }
         }
-        public SolidColorBrush BackgroundBrush => new SolidColorBrush(BackgroundColor);
 
         public CardViewModel(Card card)
         {

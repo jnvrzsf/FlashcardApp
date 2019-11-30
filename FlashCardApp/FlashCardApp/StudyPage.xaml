@@ -25,8 +25,8 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="{x:Bind ViewModel.DeckName, Mode=OneWay}" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        
-        <Rectangle Grid.Row="1" Width="300" Height="450" Fill="{x:Bind ViewModel.CurrentCard.BackgroundBrush, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Rectangle_Tapped"/>
+
+        <Rectangle Grid.Row="1" Width="300" Height="450" Fill="{x:Bind ViewModel.CurrentCard.BackgroundColor, Converter={StaticResource ColorToSolidColorBrushConverter}, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" Tapped="Rectangle_Tapped"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
