@@ -36,12 +36,13 @@ namespace FlashCardApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            string a = (string)e.Parameter;
-            //Deck deck = Deck.Load(a);
+            //Deck deck = Deck.Load((string)e.Parameter);
             //ViewModel = new StudyPageViewModel(deck);
+
             ManageWholeDeck WholeDeckManager = new ManageWholeDeck();
             WholeDeckManager.Create();
             DeckInProgress.Instance().Clear();
+
             ManageDeckInProgress deckInProgressManager = new ManageDeckInProgress();
             deckInProgressManager.PickCardsToLearn();
         }

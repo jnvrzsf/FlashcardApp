@@ -18,7 +18,7 @@ namespace FlashCardApp.Model.Deck
         public void Shuffle()
         {
             Random random = new Random();
-            cardsInDictionary = cardsInDictionary.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
+            Cards = Cards.OrderBy(x => random.Next()).ToDictionary(item => item.Key, item => item.Value);
         }
     }
 }

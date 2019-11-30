@@ -15,12 +15,10 @@ namespace FlashCardApp.Model.Deck
     /* Absztrakt osztály, a paklik közös funkciói vannak itt */
     public class Deck
     {
-        protected Dictionary<int, Card> cardsInDictionary = new Dictionary<int, Card>();
-
         /// <summary>
         /// Kártyák a pakliban
         /// </summary>
-        public List<Card> Cards { get; } = new List<Card>();
+        protected Dictionary<int, Card> Cards = new Dictionary<int, Card>();
 
         /// <summary>
         /// Pakli neve
@@ -50,25 +48,25 @@ namespace FlashCardApp.Model.Deck
         /* Paklihoz hozzáad */
         public void Add(Card card)
         {
-            if (cardsInDictionary.ContainsKey(card.ID)) return;
-            cardsInDictionary.Add(card.ID, card);
+            if (Cards.ContainsKey(card.ID)) return;
+            Cards.Add(card.ID, card);
         }
 
         /* Elvesz a pakliból */
         public void Remove(Card card)
         {
-            cardsInDictionary.Remove(card.ID);
+            Cards.Remove(card.ID);
         }
         public void Clear()
         {
-            cardsInDictionary.Clear();
+            Cards.Clear();
         }
         #endregion
 
         /* Kilistázás */
         public List<Card> ListAll()
         {
-            return cardsInDictionary.Values.ToList();
+            return Cards.Values.ToList();
         }
 
         /// <summary>
