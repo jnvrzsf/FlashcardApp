@@ -102,6 +102,7 @@ namespace FlashCardApp.ViewModel
                 var replacement = PickCard();
                 NextCard(replacement);
             }
+            Deck.Save();
             IsRevealed = false;
         }
 
@@ -136,6 +137,7 @@ namespace FlashCardApp.ViewModel
         {
             CurrentCard.Card.HitCount = 0;
             NextCard();
+            Deck.Save();
             IsRevealed = false;
         }
 

@@ -5,10 +5,11 @@ namespace FlashCardApp.ViewModel
 {
     class BrowsePageViewModel
     {
-        public List<Card> Cards;
+        public Deck Deck;
+        public List<Card> Cards => Deck.Cards;
         public BrowsePageViewModel(Deck deck)
         {
-            Cards = deck.Cards; // Cards egy List legyen
+            Deck = deck;
         }
     }
 }
