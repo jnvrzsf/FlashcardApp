@@ -1,14 +1,41 @@
 ﻿using FlashCardApp.Model;
+using System.ComponentModel;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 
 namespace FlashCardApp.ViewModel
 {
-    class CardViewModel
+    class CardViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         public Card Card { get; set; }
-        public string Word => Card.Word;
-        public string Meaning => Card.Meaning;
+
+        public string Word
+        {
+            get => Card.Word;
+            set
+            {
+                if (Card.Word != value)
+                {
+                    Card.Word = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Word)));
+                }
+            }
+        }
+        
+        public string Meaning
+        {
+            get => Card.Meaning;
+            set
+            {
+                if (Card.Meaning != value)
+                {
+                    Card.Meaning = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Meaning)));
+                }
+            }
+        }
+
         public Color BackgroundColor
         {
             get
@@ -32,6 +59,5 @@ namespace FlashCardApp.ViewModel
         {
             Card = card;
         }
-
     }
 }

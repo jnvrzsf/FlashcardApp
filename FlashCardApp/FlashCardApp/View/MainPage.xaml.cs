@@ -27,7 +27,7 @@ namespace FlashCardApp
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
+            Button button = (Button)sender;
             this.Frame.Navigate(typeof(DeckSelectionPage), button.Content);
         }
     }

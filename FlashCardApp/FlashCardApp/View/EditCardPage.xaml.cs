@@ -19,12 +19,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace FlashCardApp.View
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class EditCardPage : Page
     {
-        EditCardPageViewModel ViewModel { get; set; }
+        CardViewModel ViewModel { get; set; }
         public EditCardPage()
         {
             this.InitializeComponent();
@@ -32,12 +29,7 @@ namespace FlashCardApp.View
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            ViewModel = new EditCardPageViewModel((Card)e.Parameter);
-        }
-
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.GoBack();
+            ViewModel = (CardViewModel)e.Parameter;
         }
     }
 }

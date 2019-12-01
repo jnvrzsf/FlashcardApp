@@ -24,15 +24,17 @@ namespace FlashCardApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            Deck deck = Deck.Load((string)e.Parameter);
-            ViewModel = new BrowsePageViewModel(deck);
+            ViewModel = new BrowsePageViewModel((Deck)e.Parameter);
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                ViewModel.Deck.Save();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            //pass a deck and a card
-            this.Frame.Navigate(typeof(EditCardPage), (Card)button.DataContext);
+            this.Frame.Navigate(typeof(EditCardPage), (CardViewModel)button.DataContext);
         }
     }
 }

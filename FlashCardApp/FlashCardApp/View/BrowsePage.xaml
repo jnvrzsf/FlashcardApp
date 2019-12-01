@@ -10,7 +10,7 @@
     <ScrollViewer>
         <StackPanel HorizontalAlignment="Stretch">
             <TextBlock Text="{x:Bind ViewModel.DeckName}" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center"/>
-            <ItemsControl ItemsSource="{x:Bind ViewModel.Cards}">
+            <ItemsControl ItemsSource="{x:Bind ViewModel.Cards, Mode=TwoWay}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="Button_Click" >
@@ -20,8 +20,8 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{Binding Word}" TextAlignment="Left"/>
-                                    <TextBlock Grid.Column="1" Text="{Binding Meaning}" TextAlignment="Left"/>
+                                    <TextBlock Grid.Column="0" Text="{Binding Word, Mode=TwoWay}" TextAlignment="Left"/>
+                                    <TextBlock Grid.Column="1" Text="{Binding Meaning, Mode=TwoWay}" TextAlignment="Left"/>
                                 </Grid>
                             </Button.Content>
                         </Button>

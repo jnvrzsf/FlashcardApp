@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\EditCardPageViewModel.cs" />
     <Compile Include="View\BrowsePage.xaml.cs">
       <DependentUpon>BrowsePage.xaml</DependentUpon>
     </Compile>
@@ -203,9 +202,8 @@
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Decks\Adjectives.csv" />
-    <EmbeddedResource Include="Decks\AdjectivesShort.csv" />
     <EmbeddedResource Include="Decks\Animals.csv" />
-    <EmbeddedResource Include="Decks\BreakfastFood.csv" />
+    <EmbeddedResource Include="Decks\BreakfastFoods.csv" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
