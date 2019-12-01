@@ -1,4 +1,6 @@
 ﻿
+using FlashCardApp.Model;
+using FlashCardApp.View;
 using FlashCardApp.ViewModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,24 +24,15 @@ namespace FlashCardApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //Deck deck = Deck.Load((string)e.Parameter);
-            //ViewModel = new BrowsePageViewModel(deck);
+            Deck deck = Deck.Load((string)e.Parameter);
+            ViewModel = new BrowsePageViewModel(deck);
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            On_BackRequested();
-        }
-
-        // Handles system-level BackRequested events and page-level back button Click events
-        private bool On_BackRequested()
-        {
-            if (this.Frame.CanGoBack)
-            {
-                this.Frame.GoBack();
-                return true;
-            }
-            return false;
+            Button button = (Button)sender;
+            //pass a deck and a card
+            this.Frame.Navigate(typeof(EditCardPage), (Card)button.DataContext);
         }
     }
 }
