@@ -9,17 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
-
         <Rectangle Grid.Row="0" Width="300" Height="450" Fill="Cornsilk" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-        <Grid Grid.Row="0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="225"/>
@@ -32,19 +23,13 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock Name="foreignText" Text="Foreign word" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                <TextBox Margin="35"/>
+                <TextBlock Text="Word to learn" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"/>
+                <TextBox Margin="35" Text="{x:Bind ViewModel.Word, Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock Name="hungarianText" Text="Hungarian word" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
-                <TextBox Margin="35"/>
+                <TextBlock Text="Meaning" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"/>
+                <TextBox Margin="35" Text="{x:Bind ViewModel.Meaning, Mode=TwoWay}"/>
             </StackPanel>
         </Grid>
-
-        <Button Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF71E07E" Click="SaveButton_Click">
-            <Button.Content>
-                <SymbolIcon Symbol="Accept"/>
-            </Button.Content>
-        </Button>
     </Grid>
 </Page>
